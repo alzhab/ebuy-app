@@ -1,0 +1,82 @@
+{
+  "env": {
+    "browser": false,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "semi": 0,
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "react/display-name": [
+      "error",
+      {
+        "ignoreTranspilerName": false
+      }
+    ],
+    "no-mixed-spaces-and-tabs": 0,
+    "indent": [
+      2,
+      "tab"
+    ],
+    "import/no-unresolved": "off",
+    "arrow-parens": 0,
+    "no-tabs": 0,
+    "comma-dangle": 0,
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": false,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
+        }
+      }
+    ],
+    "operator-linebreak": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack.config.js"
+      },
+      "alias": {
+        "map": [
+          ["@assets", "./src/assets/"],
+          ["@icons", "./src/assets/icons/index.tsx"],
+          ["@stores", "./src/stores/index.tsx"],
+          ["@components", "./src/components/index.ts"],
+          ["@navigations", "./src/navigations"],
+          ["@modules", "./src/modules/index.tsx"],
+          ["@styles", "./src/styles"],
+          ["@utils", "./src/utils/index.tsx"],
+          ["@types", "./src/types/index.ts"],
+          ["@context", "./src/context/index.ts"]
+        ]
+      },
+      "extensions": [
+        ".js",
+        ".ts",
+        ".tsx",
+        ".scss"
+      ]
+    }
+  }
+}

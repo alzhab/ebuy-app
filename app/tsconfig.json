@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "indent": [true, "tabs", 2],
+    "lib": ["es6", "dom", "es2017"],
+    "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "rules": {
+      "@typescript-eslint/ban-ts-ignore": "off"
+    },
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@icons": ["src/assets/icons/index.tsx"],
+      "@stores": ["src/stores/index.tsx"],
+      "@components": ["src/components/index.ts"],
+      "@navigations/*": ["src/navigations/*"],
+      "@modules": ["src/modules/index.tsx"],
+      "@styles/*": ["src/styles/*"],
+      "@utils": ["src/utils/index.tsx"],
+      "@types": ["src/types/index.ts"],
+      "@context": ["src/context/index.ts"]
+    },
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "target": "esnext",
+    "types": ["jest"],
+    "include": ["custom.d.ts"]
+  },
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js"]
+}
