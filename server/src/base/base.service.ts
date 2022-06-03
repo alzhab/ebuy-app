@@ -1,9 +1,10 @@
 import {
+  DeepPartial,
   DeleteResult,
   FindManyOptions,
   FindOneOptions,
   Repository,
-  SaveOptions,
+  SaveOptions
 } from 'typeorm';
 import later from '../utils/late.uttils';
 
@@ -22,7 +23,7 @@ export class BaseService<Repo, CreateDto, UpdateDto> {
     data: CreateDto,
     relations: string[] = [],
     options?: SaveOptions,
-  ): Promise<Repo> {
+  ): Promise<DeepPartial<Repo>> {
     if (relations.length) {
       relations.forEach((relation) => {
         if (data[relation]) {
@@ -38,7 +39,7 @@ export class BaseService<Repo, CreateDto, UpdateDto> {
     id: number,
     data: UpdateDto,
     relations: string[] = [],
-  ): Promise<Repo> {
+  ): Promise<DeepPartial<Repo>> {
     const row = await this.findById(id, { relations });
 
     if (relations.length) {
@@ -49,7 +50,7 @@ export class BaseService<Repo, CreateDto, UpdateDto> {
       });
     }
 
-    return this.repo.save({ ...row, ...data, id });
+     const this.repo.save({ ...row, ...data, id });
   }
 
   delete(id: number): Promise<DeleteResult> {
