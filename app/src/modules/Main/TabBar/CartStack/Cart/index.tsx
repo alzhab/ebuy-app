@@ -1,8 +1,8 @@
-import React from 'react';
-import {Button, Card, CartCard, Flex, HeaderScroll, Text} from '@components';
-import {AI, DIR, JC} from '@types';
-import {Colors, TextFamily} from '@styles/base';
-import {WINDOW_HEIGHT} from '@styles/mixins';
+import React from 'react'
+import { Button, Card, CartCard, Flex, HeaderScroll, Text } from '@components'
+import { AI, DIR, JC } from '@types'
+import { Colors, TextFamily } from '@styles/base'
+import { WINDOW_HEIGHT } from '@styles/mixins'
 
 const Cart = () => {
   return (
@@ -12,20 +12,32 @@ const Cart = () => {
         withTabbar
         containerHor
         minHeight={WINDOW_HEIGHT / 6}
-        headerProps={{title: 'Cart', back: true}}>
-        <Flex size={1} full styles={{paddingTop: 16}}>
+        headerProps={{ title: 'Cart', back: true }}>
+        <Flex size={1} full styles={{ paddingTop: 16 }}>
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
+          <CartCard />
           <CartCard />
         </Flex>
       </HeaderScroll>
 
-      <Flex full containerHor styles={{marginBottom: 16}}>
+      <Flex full containerHor styles={{ marginBottom: 16 }}>
         <Card full>
           <Flex
             dir={DIR.row}
             full
             ai={AI.center}
             jc={JC.spaceBetween}
-            styles={{marginBottom: 30}}>
+            styles={{ marginBottom: 30 }}>
             <Text size={16} family={TextFamily.SEMIBOLD}>
               Total:
             </Text>
@@ -38,7 +50,7 @@ const Cart = () => {
         </Card>
       </Flex>
     </Flex>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

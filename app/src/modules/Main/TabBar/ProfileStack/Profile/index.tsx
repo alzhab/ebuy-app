@@ -1,25 +1,25 @@
-import React, {useEffect} from 'react';
-import {Flex, List, Loading} from '@components';
-import {RefreshControl, ScrollView, StatusBar} from 'react-native';
-import {LogoutIcon} from '@icons';
-import {ProfileHeader} from './components';
-import {TABBAR_HEIGHT} from '@styles/spacing';
-import {observer} from 'mobx-react';
-import {authStore, profileStore} from '@stores';
-import {userList} from './constants';
-import {COLORS} from '@styles/base';
+import React, { useEffect } from 'react'
+import { Flex, List, Loading } from '@components'
+import { RefreshControl, ScrollView, StatusBar } from 'react-native'
+import { LogoutIcon } from '@icons'
+import { ProfileHeader } from './components'
+import { TABBAR_HEIGHT } from '@styles/spacing'
+import { observer } from 'mobx-react'
+import { authStore, profileStore } from '@stores'
+import { userList } from './constants'
+import { COLORS } from '@styles/base'
 
-const HEADER_BOTTOM = 60;
+const HEADER_BOTTOM = 60
 
 const Profile = () => {
   useEffect(() => {
-    profileStore.init();
-  }, []);
+    profileStore.init()
+  }, [])
 
-  if (profileStore.loading) return <Loading show={true} />;
+  if (profileStore.loading) return <Loading show={true} />
 
-  const fullName = `${profileStore.user?.first_name} ${profileStore.user?.last_name}`;
-  const avatar = profileStore.user?.avatar_path || null;
+  const fullName = `${profileStore.user?.first_name} ${profileStore.user?.last_name}`
+  const avatar = profileStore.user?.avatar_path || null
 
   return profileStore.user ? (
     <>
@@ -44,8 +44,8 @@ const Profile = () => {
             paddingBottom: TABBAR_HEIGHT,
           }}>
           <ProfileHeader
-            edit={(res) => {
-              profileStore.updateProfile({avatar: res});
+            edit={res => {
+              profileStore.updateProfile({ avatar: res })
             }}
             fullname={fullName}
             avatar={avatar}
@@ -67,7 +67,7 @@ const Profile = () => {
                   title: 'Sign out',
                   Icon: LogoutIcon,
                   click: () => {
-                    authStore.logout();
+                    authStore.logout()
                   },
                 },
               ]}
@@ -76,7 +76,7 @@ const Profile = () => {
         </ScrollView>
       </Flex>
     </>
-  ) : null;
-};
+  ) : null
+}
 
-export default observer(Profile);
+export default observer(Profile)

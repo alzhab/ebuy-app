@@ -5,39 +5,39 @@ import {FindManyOptions} from 'typeorm';
 import customersApi, {ICustomer} from '../api/customers.api';
 
 class ProductStore {
-  constructor() {
-    makeAutoObservable(this);
-  }
+	constructor() {
+		makeAutoObservable(this);
+	}
 
   getProducts = (
-    options?: FindManyOptions<IProduct>,
+  	options?: FindManyOptions<IProduct>,
   ): Promise<IProduct[] | void> => {
-    return productsApi.getAll(options).catch(catchErrors.storeCatchError);
+  	return productsApi.getAll(options).catch(catchErrors.storeCatchError);
   };
 
   @action getFavorites = (): Promise<IProduct[] | void> => {
-    return productsApi.getFavorite().catch(catchErrors.storeCatchError);
+  	return productsApi.getFavorite().catch(catchErrors.storeCatchError);
   };
 
   @action getProductsByCategory = (
-    categoryId: string,
+  	categoryId: string,
   ): Promise<IProduct[] | void> => {
-    return productsApi
-      .getByCategory(categoryId)
-      .catch(catchErrors.storeCatchError);
+  	return productsApi
+  		.getByCategory(categoryId)
+  		.catch(catchErrors.storeCatchError);
   };
 
   addInFavorite = (prod: IProduct) =>
-    (prod.inFavorite = prod.customers ? !!prod.customers.length : false);
+  	(prod.inFavorite = prod.customers ? !!prod.customers.length : false);
 
   @action getPopular = (): Promise<IProduct[] | void> => {
-    return productsApi.getPopular().catch(catchErrors.storeCatchError);
+  	return productsApi.getPopular().catch(catchErrors.storeCatchError);
   };
 
   @action toggleFavorite = (productId: string): Promise<ICustomer | void> => {
-    return customersApi
-      .toggleFavorite(productId)
-      .catch(catchErrors.storeCatchError);
+  	return customersApi
+  		.toggleFavorite(productId)
+  		.catch(catchErrors.storeCatchError);
   };
 }
 

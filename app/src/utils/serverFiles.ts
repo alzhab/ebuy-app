@@ -1,7 +1,5 @@
-import {API} from '../api/constants';
-
-const serverImage = (image: string) => `${API}/images/${image}`;
+const serverImage = (image: string) => image;
 
 export default {
-  serverImage,
+	serverImage,
 };

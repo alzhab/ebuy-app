@@ -1,5 +1,5 @@
-import React from 'react';
-import {WINDOW_HEIGHT} from '@styles/mixins';
+import React from 'react'
+import { WINDOW_HEIGHT } from '@styles/mixins'
 import {
   AmountInput,
   AnimateItTiming,
@@ -8,18 +8,27 @@ import {
   Flex,
   SizeButtons,
   Text,
-} from '@components';
-import {styles} from './styles';
-import {AI, ButtonTypes, DIR, JC} from '@types';
-import {CloseIcon} from '@icons';
-import {Colors, COLORS} from '@styles/base';
-import Cart from '../Cart';
+} from '@components'
+import { styles } from './styles'
+import { AI, ButtonTypes, DIR, JC } from '@types'
+import { CloseIcon } from '@icons'
+import { Colors, COLORS } from '@styles/base'
+import Cart from '../Cart'
+import { IProduct } from '../../../../../api/products.api'
 
-const Modal = ({show, close}: {show: boolean; close: () => void}) => {
+const Modal = ({
+  show,
+  close,
+  card,
+}: {
+  show: boolean
+  close: () => void
+  card: IProduct
+}) => {
   const modalProps = {
     style: styles.modal,
-    toConfig: {duration: 200},
-    fromConfig: {duration: 200},
+    toConfig: { duration: 200 },
+    fromConfig: { duration: 200 },
     interpolations: [
       {
         name: 'translateY',
@@ -34,31 +43,31 @@ const Modal = ({show, close}: {show: boolean; close: () => void}) => {
     ],
     remove: true,
     show,
-  };
+  }
 
-  const colors = ['#EF452C', '#390B12', '#9D9EA3'];
-  const sizes = ['S', 'M', 'L', 'XL'];
+  const colors = ['#EF452C', '#390B12', '#9D9EA3']
+  const sizes = ['S', 'M', 'L', 'XL']
 
   return (
     <>
       <AnimateItTiming
         show={show}
         style={styles.back}
-        interpolations={[{name: 'opacity', outputRange: [0, 1], dir: 'both'}]}
+        interpolations={[{ name: 'opacity', outputRange: [0, 1], dir: 'both' }]}
         remove
       />
 
       <AnimateItTiming {...modalProps}>
-        <Flex full ai={AI.flexEnd} styles={{marginBottom: 36}}>
+        <Flex full ai={AI.flexEnd} styles={{ marginBottom: 36 }}>
           <Button empty type={ButtonTypes.EMPTY} click={close}>
             <CloseIcon sizeHeight={20} color={COLORS.NEUTRAL_GRAY_DARK} />
           </Button>
         </Flex>
 
-        <Cart />
+        <Cart card={card} />
 
-        <Flex full styles={{marginBottom: 23}}>
-          <Text size={14} styles={{marginBottom: 14}}>
+        <Flex full styles={{ marginBottom: 23 }}>
+          <Text size={14} styles={{ marginBottom: 14 }}>
             Color:
           </Text>
 
@@ -67,8 +76,8 @@ const Modal = ({show, close}: {show: boolean; close: () => void}) => {
           </Flex>
         </Flex>
 
-        <Flex full styles={{marginBottom: 23}}>
-          <Text size={14} styles={{marginBottom: 14}}>
+        <Flex full styles={{ marginBottom: 23 }}>
+          <Text size={14} styles={{ marginBottom: 14 }}>
             Size:
           </Text>
 
@@ -84,7 +93,7 @@ const Modal = ({show, close}: {show: boolean; close: () => void}) => {
         </Flex>
       </AnimateItTiming>
     </>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

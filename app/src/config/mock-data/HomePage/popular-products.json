@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "SPEEDY 30",
+    "price": 1550,
+    "description": "Made from iconic Monogram canvas, the Speedy 30 is an elegant, compact handbag, a stylish companion for city life. Launched in 1930 as the \"Express\" and inspired by that era's rapid transit, today’s updated Speedy remains a timeless House icon, with its unmistakable silhouette, rolled leather handles and engraved, signature padlock.",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton--P00134_PM2_Front%20view.png",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-speedy-30-monogram-handbags--M41108_PM1_Ambiance%20view.png?wid=656",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-speedy-30-monogram-handbags--M41108_PM1_Interior%20view.png?wid=656",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-speedy-30-monogram-handbags--M41108_PM1_Detail%20view.png?wid=656"
+    ],
+    "video": ""
+  },
+  {
+    "id": "2",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "BOMBER JACKET",
+    "price": 3200,
+    "description": "Description",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-embossed-monogram-bomber-jacket-ready-to-wear--FNJA32PY7900_PM2_Front%20view.png?wid=456&hei=456",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-embossed-monogram-bomber-jacket-ready-to-wear--FNJA32PY7900_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-embossed-monogram-bomber-jacket-ready-to-wear--FNJA32PY7900_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-embossed-monogram-bomber-jacket-ready-to-wear--FNJA32PY7900_PM2_Front%20view.png?wid=456&hei=456"
+    ],
+    "video": ""
+  },
+  {
+    "id": "3",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "LV MATCH CAP",
+    "price": 760,
+    "description": "Description",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-cap-s00-hats-and-gloves--M77740_PM2_Front%20view.png?wid=456&hei=456",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-cap-s00-hats-and-gloves--M77740_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-cap-s00-hats-and-gloves--M77740_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-cap-s00-hats-and-gloves--M77740_PM2_Front%20view.png?wid=456&hei=456"
+    ],
+    "video": ""
+  },
+  {
+    "id": "4",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "LV MATCH POLO TOP",
+    "price": 1250,
+    "description": "Description",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-polo-top-ready-to-wear--FNBL46G72900_PM2_Front%20view.png?wid=456&hei=456",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-polo-top-ready-to-wear--FNBL46G72900_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-polo-top-ready-to-wear--FNBL46G72900_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-polo-top-ready-to-wear--FNBL46G72900_PM2_Front%20view.png?wid=456&hei=456"
+    ],
+    "video": ""
+  }
+]

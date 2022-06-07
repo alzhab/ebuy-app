@@ -1,24 +1,35 @@
-import React, {ReactElement} from 'react';
-import {AnimateItTiming, Button, Flex} from '@components';
-import {COLORS} from '@styles/base';
-import {ButtonTypes, DIR, IconProps, JC, Navigations} from '@types';
-import {boxShadow, WINDOW_WIDTH} from '@styles/mixins';
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs/lib/typescript/src/types';
-import {TABBAR_HEIGHT} from '@styles/spacing';
-import {SafeAreaView} from 'react-navigation';
+import React, { ReactElement } from 'react'
+import { AnimateItTiming, Button, Flex } from '@components'
+import { COLORS } from '@styles/base'
+import { ButtonTypes, DIR, IconProps, JC, Navigations } from '@types'
+import { boxShadow, WINDOW_WIDTH } from '@styles/mixins'
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs/lib/typescript/src/types'
+import { TABBAR_HEIGHT } from '@styles/spacing'
+import { authStore } from '@stores'
+
+const GuardRoutes = [
+  Navigations.ProfileStack,
+  Navigations.Favorites,
+  Navigations.CartStack,
+]
 
 const BottomBar = (props: BottomTabBarProps) => {
-  const routes = props.state.routes;
-  const history = props.state.history;
-  const descrptors = props.descriptors;
+  const routes = props.state.routes
+  const history = props.state.history
+  const descrptors = props.descriptors
 
-  const activeKey = history[history.length - 1].key;
+  const activeKey = history[history.length - 1].key
 
   const navigate = (route: Navigations, key: string) => {
     if (activeKey !== key) {
-      props.navigation.navigate(route);
+      if (!authStore.isAuthorized && GuardRoutes.includes(route)) {
+        props.navigation.navigate(Navigations.Auth)
+      } else {
+        props.navigation.navigate(route)
+      }
     }
-  };
+  }
+
   return (
     <Flex
       full
@@ -30,12 +41,11 @@ const BottomBar = (props: BottomTabBarProps) => {
         backgroundColor: COLORS.MAIN_BG,
         ...boxShadow(),
       }}>
-      {routes.map((route) => {
-        const key = route.key;
-        const options = descrptors[key].options;
-        // @ts-ignore
-        const Icon: (props: IconProps) => ReactElement = options.Icon;
-        const isActive = activeKey === key;
+      {routes.map(route => {
+        const key = route.key
+        const options = descrptors[key].options
+        const Icon: (props: IconProps) => ReactElement = options.Icon
+        const isActive = activeKey === key
 
         return (
           <Button
@@ -73,10 +83,10 @@ const BottomBar = (props: BottomTabBarProps) => {
               sizeHeight={24}
             />
           </Button>
-        );
+        )
       })}
     </Flex>
-  );
-};
+  )
+}
 
-export default BottomBar;
+export default BottomBar

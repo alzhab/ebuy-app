@@ -1,7 +1,7 @@
-import {IField} from '../../../../../components/organisms/FormGenerator';
-import {validators} from '@utils';
-import {ICustomer} from '../../../../../api/customers.api';
-import moment from 'moment';
+import { IField } from '../../../../../components/organisms/FormGenerator'
+import { validators } from '@utils'
+import { ICustomer } from '../../../../../api/customers.api'
+import moment from 'moment'
 
 export const fields: IField[] = [
   {
@@ -30,13 +30,13 @@ export const fields: IField[] = [
     label: 'Date of birth',
     type: 'date',
   },
-];
+]
 
 export const defaultValues = (user: ICustomer | null) => ({
   email: user?.email || '',
   first_name: user?.first_name || '',
   last_name: user?.last_name || '',
   birth_date: moment(user?.birth_date).toDate() || undefined,
-});
+})
 
-export const submitTitle = 'Save changes';
+export const submitTitle = 'Save changes'

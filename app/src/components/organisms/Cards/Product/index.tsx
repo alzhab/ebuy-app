@@ -1,26 +1,26 @@
-import React from 'react';
-import {AnimateItTiming, Flex, Image, Text} from '../../../atoms';
-import {Button, Card} from '../../../molecules';
-import {COLORS, Colors, TextFamily} from '@styles/base';
-import {AI, ButtonTypes, DIR, JC, Navigations} from '@types';
-import {HeartIcon} from '@icons';
-import navigate from '@navigations/RootNavigation';
-import {TouchableOpacity} from 'react-native';
-import {IProduct} from '../../../../api/products.api';
-import {observer} from 'mobx-react';
+import React from 'react'
+import { AnimateItTiming, Flex, Image, Text } from '../../../atoms'
+import { Button, Card } from '../../../molecules'
+import { COLORS, Colors, TextFamily } from '@styles/base'
+import { AI, ButtonTypes, DIR, JC, Navigations } from '@types'
+import { HeartIcon } from '@icons'
+import navigate from '@navigations/RootNavigation'
+import { TouchableOpacity } from 'react-native'
+import { IProduct } from '../../../../api/products.api'
+import { observer } from 'mobx-react'
 
 interface IProps {
-  width?: number | string;
-  bottom?: number;
-  card: IProduct;
-  toggleFavorite: () => void;
+  width?: number | string
+  bottom?: number
+  card: IProduct
+  toggleFavorite: () => void
 }
 
-const Product = ({width, bottom, card, toggleFavorite}: IProps) => {
+const Product = ({ width, bottom, card, toggleFavorite }: IProps) => {
   return (
     <AnimateItTiming
       show={true}
-      style={{width: width ? width : '100%'}}
+      style={{ width: width ? width : '100%' }}
       interpolations={[
         {
           outputRange: [0, 1],
@@ -41,23 +41,18 @@ const Product = ({width, bottom, card, toggleFavorite}: IProps) => {
           marginBottom: bottom || 0,
           marginTop: 50,
         }}
-        onPress={() => {
-          navigate(Navigations.ProductDetail);
-        }}>
-        <Card full padding={{top: 50, left: 16, bottom: 16}}>
+        onPress={() => navigate(Navigations.ProductDetail, { card })}>
+        <Card full padding={{ top: 50, left: 16, bottom: 16 }}>
           <Flex
             styles={{
               position: 'absolute',
               top: 0,
-              right: 16,
+              right: 0,
               height: 100,
-              width: '70%',
-              transform: [{translateY: -60}],
+              width: '100%',
+              transform: [{ translateY: -60 }],
             }}>
-            <Image
-              resizeMode={'contain'}
-              source={require('@assets/images/product.png')}
-            />
+            <Image resizeMode={'cover'} source={{ uri: card.image }} />
           </Flex>
 
           <Text
@@ -72,7 +67,7 @@ const Product = ({width, bottom, card, toggleFavorite}: IProps) => {
             dir={DIR.row}
             ai={AI.center}
             jc={JC.spaceBetween}
-            styles={{marginTop: 10}}>
+            styles={{ marginTop: 10 }}>
             <Text size={16} family={TextFamily.SEMIBOLD}>
               ${card ? card.price : 0}
             </Text>
@@ -95,7 +90,7 @@ const Product = ({width, bottom, card, toggleFavorite}: IProps) => {
         </Card>
       </TouchableOpacity>
     </AnimateItTiming>
-  );
-};
+  )
+}
 
-export default observer(Product);
+export default observer(Product)

@@ -1,5 +1,5 @@
 import {API} from './constants';
-import axios from 'axios';
+import axiosInstance from '../config/axios';
 
 export interface ILogin {
   email: string;
@@ -24,19 +24,19 @@ class AuthApi {
   private readonly api: string;
 
   constructor() {
-    this.api = `${API}/auth/customer`;
+  	this.api = `${API}/auth/customer`;
   }
 
   async signup(data: IRegister): Promise<SignupData> {
-    return axios.post(`${this.api}/register`, data).then((res) => {
-      return res.data;
-    });
+  	return axiosInstance.post(`${this.api}/register`, data).then((res) => {
+  		return res.data;
+  	});
   }
 
   async login(data: ILogin): Promise<SignupData> {
-    return axios.post(`${this.api}/login`, data).then((res) => {
-      return res.data;
-    });
+  	return axiosInstance.post(`${this.api}/login`, data).then((res) => {
+  		return res.data;
+  	});
   }
 }
 

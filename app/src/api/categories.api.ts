@@ -1,24 +1,25 @@
-import {BaseApi, BaseEntity} from './base.api';
-import axios from 'axios';
-import {IProduct} from './products.api';
+import { BaseApi, BaseEntity } from './base.api'
+import axiosInstance from '../config/axios'
 
 export interface ICategory extends BaseEntity {
-  name: string;
-  img: string;
+  name: string
+  img: string
 
   // products?:
 }
 
 class CategoriesApi extends BaseApi<ICategory> {
   constructor() {
-    super('categories');
+    super('categories')
   }
 
   async search(value: string): Promise<ICategory[]> {
-    return axios.get(`${this.api}/search/${value}`).then((res) => res.data);
+    return axiosInstance
+      .get(`${this.api}/search`, { params: { search: value } })
+      .then(res => res.data)
   }
 }
 
-const categoriesApi = new CategoriesApi();
+const categoriesApi = new CategoriesApi()
 
-export default categoriesApi;
+export default categoriesApi

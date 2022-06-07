@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
-import {Button, Flex, FormGenerator, HeaderScroll, Loading} from '@components';
-import {useForm} from 'react-hook-form';
-import {defaultValues, fields, submitTitle} from './constants';
-import {ButtonTypes} from '@types';
-import {profileStore} from '@stores';
-import {observer} from 'mobx-react';
+import React, { useEffect } from 'react'
+import { Button, Flex, FormGenerator, HeaderScroll, Loading } from '@components'
+import { useForm } from 'react-hook-form'
+import { defaultValues, fields, submitTitle } from './constants'
+import { ButtonTypes } from '@types'
+import { profileStore } from '@stores'
+import { observer } from 'mobx-react'
 
 const ProfileEdit = () => {
   const {
@@ -12,22 +12,22 @@ const ProfileEdit = () => {
     handleSubmit,
     errors,
     getValues,
-    formState: {isValid},
+    formState: { isValid },
   } = useForm({
     reValidateMode: 'onChange',
     mode: 'onChange',
     defaultValues: defaultValues(profileStore.user),
-  });
+  })
 
   const submit = () => {
-    const values = getValues();
-    profileStore.updateProfile(values);
-  };
+    const values = getValues()
+    profileStore.updateProfile(values)
+  }
 
   return (
     <HeaderScroll
       containerHor
-      headerProps={{title: 'My details', back: true}}
+      headerProps={{ title: 'My details', back: true }}
       loading={profileStore.editLoading}
       containerBottom>
       <Flex full size={1}>
@@ -47,7 +47,7 @@ const ProfileEdit = () => {
         title={submitTitle}
       />
     </HeaderScroll>
-  );
-};
+  )
+}
 
-export default observer(ProfileEdit);
+export default observer(ProfileEdit)

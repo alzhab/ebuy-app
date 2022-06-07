@@ -16,10 +16,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "semi": 0,
     "@typescript-eslint/ban-ts-ignore": "off",
@@ -30,10 +27,6 @@
       }
     ],
     "no-mixed-spaces-and-tabs": 0,
-    "indent": [
-      2,
-      "tab"
-    ],
     "import/no-unresolved": "off",
     "arrow-parens": 0,
     "no-tabs": 0,
@@ -71,12 +64,7 @@
           ["@context", "./src/context/index.ts"]
         ]
       },
-      "extensions": [
-        ".js",
-        ".ts",
-        ".tsx",
-        ".scss"
-      ]
+      "extensions": [".js", ".ts", ".tsx", ".scss"]
     }
   }
 }

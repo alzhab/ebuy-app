@@ -8,3 +8,4 @@ export {default as productStore} from './ProductStore';
 export {default as byCategoryStore} from './ByCategoryStore';
 export {default as favoritesStore} from './FavoritesStore';
 export {default as searchStore} from './SearchStore';
+export {default as cartStore} from './CartStore';

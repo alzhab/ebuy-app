@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
-import {Provider} from 'mobx-react';
+import React, { Component } from 'react'
+import { Provider } from 'mobx-react'
 import {
   authStore,
   byCategoryStore,
+  cartStore,
   favoritesStore,
   homeStore,
   loadingStore,
@@ -11,7 +12,7 @@ import {
   productStore,
   profileStore,
   searchStore,
-} from '@stores';
+} from '@stores'
 
 const stores = {
   loadingStore,
@@ -24,12 +25,13 @@ const stores = {
   byCategoryStore,
   favoritesStore,
   searchStore,
-};
+  cartStore,
+}
 
 class WithStores extends Component {
   render() {
-    return <Provider {...stores}>{this.props.children}</Provider>;
+    return <Provider {...stores}>{this.props.children}</Provider>
   }
 }
 
-export default WithStores;
+export default WithStores

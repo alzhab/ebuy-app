@@ -1,5 +1,3 @@
-import {API} from '../api/constants';
+import { API } from '../api/constants'
 
-export const getImage = (img: string) => {
-  return `${API}/images/${img}`;
-};
+export const getImage = (img: string) => img

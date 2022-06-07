@@ -10,15 +10,15 @@ interface IProps {
 }
 
 const Skeletons = ({height}: IProps) => {
-  return (
-    <SkeletonPlaceholder>
-      <SkeletonPlaceholder.Item
-        width={width}
-        height={height}
-        borderRadius={4}
-      />
-    </SkeletonPlaceholder>
-  );
+	return (
+		<SkeletonPlaceholder>
+			<SkeletonPlaceholder.Item
+				width={width}
+				height={height}
+				borderRadius={4}
+			/>
+		</SkeletonPlaceholder>
+	);
 };
 
 export default Skeletons;

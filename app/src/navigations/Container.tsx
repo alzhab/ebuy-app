@@ -12,81 +12,77 @@ import {COLORS} from '@styles/base';
 import AuthNavigaiton from '../modules/Auth';
 
 const colors = {
-  primary: COLORS.PRIMARY,
-  background: COLORS.MAIN_BG,
-  card: COLORS.MAIN_BG,
-  text: COLORS.NEUTRAL_DARK,
-  border: COLORS.NEUTRAL_DARK,
-  notification: COLORS.PRIMARY,
+	primary: COLORS.PRIMARY,
+	background: COLORS.MAIN_BG,
+	card: COLORS.MAIN_BG,
+	text: COLORS.NEUTRAL_DARK,
+	border: COLORS.NEUTRAL_DARK,
+	notification: COLORS.PRIMARY,
 };
 
 const navigations = [
-  {
-    name: Navigations.Onboarding,
-    component: Onboarding,
-  },
-  {
-    name: Navigations.Main,
-    component: MainNavigaiton,
-  },
-  {
-    name: Navigations.Auth,
-    component: AuthNavigaiton,
-  },
+	{
+		name: Navigations.Onboarding,
+		component: Onboarding,
+	},
+	{
+		name: Navigations.Main,
+		component: MainNavigaiton,
+	},
+	{
+		name: Navigations.Auth,
+		component: AuthNavigaiton,
+	},
 ];
 
 const Stack = createStackNavigator();
 
 @observer
 class Container extends Component {
-  static contextType = OnboardingContext;
-
-  render(): ReactElement {
-    const {showOnboarding} = this.context;
-
-    const isAuthorized = authStore.isAuthorized;
-
-    const firstScreen = showOnboarding
-      ? Navigations.Onboarding
-      : isAuthorized
-      ? Navigations.Main
-      : Navigations.Auth;
-
-    return (
-      <>
-        <NavigationContainer
-          ref={navigationRef}
-          theme={{
-            dark: false,
-            colors,
-          }}>
-          <Stack.Navigator
-            headerMode={'none'}
-            initialRouteName={
-              showOnboarding ? Navigations.Onboarding : firstScreen
-            }>
-            {navigations.map((route) => (
-              <Stack.Screen
-                key={route.name}
-                name={route.name}
-                component={route.component}
-              />
-            ))}
-          </Stack.Navigator>
-        </NavigationContainer>
-
-        <LoadingBig loading={loadingStore.loading} />
-        <Message
-          show={noticeMessageStore.show}
-          text={noticeMessageStore.text}
-          type={noticeMessageStore.type}
-        />
-        <Modal open={modalStore.modalProps.show} close={modalStore.closeModal}>
-          {modalStore.modalProps.children()}
-        </Modal>
-      </>
-    );
-  }
+	static contextType = OnboardingContext;
+	
+	render(): ReactElement {
+		const {showOnboarding} = this.context;
+		
+		const firstScreen = showOnboarding
+			? Navigations.Onboarding
+			: Navigations.Main
+		
+		return (
+			<>
+				<NavigationContainer
+					ref={navigationRef}
+					theme={{
+						dark: false,
+						colors,
+					}}>
+					<Stack.Navigator
+						headerMode={'none'}
+						initialRouteName={
+							showOnboarding ? Navigations.Onboarding : firstScreen
+						}>
+						{navigations.map((route) => (
+							<Stack.Screen
+								key={route.name}
+								name={route.name}
+								component={route.component}
+							/>
+						))}
+					</Stack.Navigator>
+				</NavigationContainer>
+				
+				<LoadingBig loading={loadingStore.loading} />
+				<Message
+					show={noticeMessageStore.show}
+					text={noticeMessageStore.text}
+					type={noticeMessageStore.type}
+				/>
+				<Modal open={modalStore.modalProps.show} close={modalStore.closeModal}>
+					{modalStore.modalProps.children()}
+				</Modal>
+			</>
+		);
+	}
 }
 
 export default Container;

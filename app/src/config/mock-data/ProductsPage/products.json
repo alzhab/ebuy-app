@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "MONOCHROME MIXED-MATERIAL DRESS",
+    "price": 3450,
+    "description": "Description",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monochrome-mixed-material-dress--FNDR27UVF900_PM2_Front%20view.png?wid=456&hei=456",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monochrome-mixed-material-dress--FNDR27UVF900_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monochrome-mixed-material-dress--FNDR27UVF900_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monochrome-mixed-material-dress--FNDR27UVF900_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monochrome-mixed-material-dress--FNDR27UVF900_PM2_Front%20view.png?wid=456&hei=456"
+    ],
+    "video": "",
+    "categories": ["1"]
+  },
+  {
+    "id": "2",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "TAILORED TENNIS DRESS",
+    "price": 3900,
+    "description": "Description",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tailored-tennis-dress--FNDR35FI3001_PM2_Front%20view.png?wid=456&hei=456",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tailored-tennis-dress--FNDR35FI3001_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tailored-tennis-dress--FNDR35FI3001_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tailored-tennis-dress--FNDR35FI3001_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tailored-tennis-dress--FNDR35FI3001_PM2_Front%20view.png?wid=456&hei=456"
+    ],
+    "video": "",
+    "categories": ["1"]
+  },
+  {
+    "id": "3",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "MONOGRAM TOWELING DRESS",
+    "price": 3450,
+    "description": "Description",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-toweling-dress--FNDR62O94644_PM2_Front%20view.png?wid=456&hei=456",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-toweling-dress--FNDR62O94644_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-toweling-dress--FNDR62O94644_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-toweling-dress--FNDR62O94644_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-toweling-dress--FNDR62O94644_PM2_Front%20view.png?wid=456&hei=456"
+    ],
+    "video": "",
+    "categories": ["1"]
+  },
+  {
+    "id": "4",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "LV SET DAMIER SHORT-SLEEVED DRESS",
+    "price": 2220,
+    "description": "Description",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-damier-short-sleeved-dress--FNDR45O00322_PM2_Front%20view.png?wid=456&hei=456",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-damier-short-sleeved-dress--FNDR45O00322_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-damier-short-sleeved-dress--FNDR45O00322_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-damier-short-sleeved-dress--FNDR45O00322_PM2_Front%20view.png?wid=456&hei=456",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-match-damier-short-sleeved-dress--FNDR45O00322_PM2_Front%20view.png?wid=456&hei=456"
+    ],
+    "video": "",
+    "categories": ["1"]
+  },
+  {
+    "id": "4",
+    "create_at": "1654603886602",
+    "updated_at": "1654603886602",
+    "name": "TAMBOUR STREET DIVER",
+    "price": 7805,
+    "description": "Boasting an uncompromisingly modern look, the Tambour Street Diver combines traditional diving features with unexpected design in one versatile creation. The Skyline Blue model combines navy and light blue tones on a sunray dial, with a rubber strap that echoes the effect. Robust and edgy, it will bring a casual touch to any outfit.",
+    "image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tambour-street-diver-watches-and-jewelry--QBB172_PM2_Front%20view.png?wid=1240&hei=1240",
+    "images": [
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tambour-street-diver-watches-and-jewelry--QBB172_PM1_Ambiance%20view.png?wid=824",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tambour-street-diver-watches-and-jewelry--QBB172_PM1_Interior%20view.png?wid=824",
+      "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tambour-street-diver-watches-and-jewelry--QBB172_PM1_Detail%20view.png?wid=824"
+    ],
+    "video": "https://lv-vod.fl.freecaster.net/vod/louisvuitton/SCzQ586Ljs_1080p.mp4",
+    "categories": ["2"]
+  }
+]

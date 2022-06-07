@@ -12,48 +12,48 @@ import {WINDOW_WIDTH} from '@styles/mixins';
 import {COLORS} from '@styles/base';
 
 const Onboarding = (): ReactElement => {
-  const {hideOnboarding} = useContext(OnboardingContext);
-  const navigation = useNavigation();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const carouselRef = useRef(null);
+	const {hideOnboarding} = useContext(OnboardingContext);
+	const navigation = useNavigation();
+	const [activeIndex, setActiveIndex] = useState(0);
+	const carouselRef = useRef(null);
 
-  const hide = () => {
-    hideOnboarding();
-    navigation.navigate(Navigations.Auth);
-  };
+	const hide = () => {
+		hideOnboarding();
+		navigation.navigate(Navigations.Main);
+	};
 
-  const _renderItem = ({item}: {item: ISlide}) => {
-    return <Slide data={item} />;
-  };
+	const _renderItem = ({item}: {item: ISlide}) => {
+		return <Slide data={item} />;
+	};
 
-  return (
-    <Flex size={1} ai={AI.center} jc={JC.center} containerVer>
-      <Flex size={1} full ai={AI.center}>
-        <Carousel
-          layout={'stack'}
-          ref={carouselRef}
-          data={slides}
-          sliderWidth={WINDOW_WIDTH}
-          itemWidth={WINDOW_WIDTH}
-          renderItem={_renderItem}
-          onSnapToItem={(index) => setActiveIndex(index)}
-        />
+	return (
+		<Flex size={1} ai={AI.center} jc={JC.center} containerVer>
+			<Flex size={1} full ai={AI.center}>
+				<Carousel
+					layout={'stack'}
+					ref={carouselRef}
+					data={slides}
+					sliderWidth={WINDOW_WIDTH}
+					itemWidth={WINDOW_WIDTH}
+					renderItem={_renderItem}
+					onSnapToItem={(index) => setActiveIndex(index)}
+				/>
 
-        <Pagination
-          dotsLength={slides.length}
-          activeDotIndex={activeIndex}
-          inactiveDotScale={1}
-          dotStyle={{backgroundColor: COLORS.PRIMARY}}
-          inactiveDotStyle={{backgroundColor: COLORS.NEUTRAL_GRAY}}
-          dotContainerStyle={{marginHorizontal: 4}}
-        />
-      </Flex>
+				<Pagination
+					dotsLength={slides.length}
+					activeDotIndex={activeIndex}
+					inactiveDotScale={1}
+					dotStyle={{backgroundColor: COLORS.PRIMARY}}
+					inactiveDotStyle={{backgroundColor: COLORS.NEUTRAL_GRAY}}
+					dotContainerStyle={{marginHorizontal: 4}}
+				/>
+			</Flex>
 
-      <Flex full containerHor>
-        <Button size={16} full click={hide} title={text.button} />
-      </Flex>
-    </Flex>
-  );
+			<Flex full containerHor>
+				<Button size={16} full click={hide} title={text.button} />
+			</Flex>
+		</Flex>
+	);
 };
 
 export default observer(Onboarding);

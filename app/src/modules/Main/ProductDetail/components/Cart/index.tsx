@@ -1,16 +1,17 @@
-import React from 'react';
-import {AI, DIR, JC} from '@types';
-import {Card, Flex, Image, Text} from '@components';
-import {Colors, TextFamily} from '@styles/base';
+import React, { FC } from 'react'
+import { AI, DIR, JC } from '@types'
+import { Card, Flex, Image, Text } from '@components'
+import { Colors, TextFamily } from '@styles/base'
+import { IProduct } from '../../../../../api/products.api'
 
-const Cart = () => {
+const Cart: FC<{ card: IProduct }> = ({ card }) => {
   return (
     <Card
       full
-      padding={{top: 16, left: 78, bottom: 26}}
+      padding={{ top: 16, left: 78, bottom: 26 }}
       jc={JC.spaceBetween}
       ai={AI.flexStart}
-      styles={{marginBottom: 24, marginLeft: 20}}>
+      styles={{ marginBottom: 24, marginLeft: 20 }}>
       <Image
         style={[
           {
@@ -21,11 +22,11 @@ const Cart = () => {
             left: -20,
           },
         ]}
-        source={require('@assets/images/cart-product.png')}
+        source={{ uri: card.image }}
       />
 
       <Text family={TextFamily.SEMIBOLD} size={16}>
-        Women's hoodie{' '}
+        {card.name}
       </Text>
 
       <Flex
@@ -34,15 +35,13 @@ const Cart = () => {
         jc={JC.spaceBetween}
         ai={AI.center}
         size={14}
-        styles={{marginTop: 15}}>
-        <Text color={Colors.NEUTRAL_GRAY_DARK}>Warehouse: 83</Text>
-
+        styles={{ marginTop: 15 }}>
         <Text size={20} family={TextFamily.SEMIBOLD}>
-          $123
+          ${card.price}
         </Text>
       </Flex>
     </Card>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

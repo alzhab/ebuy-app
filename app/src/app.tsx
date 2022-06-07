@@ -25,36 +25,36 @@ declare global {
 
 class App extends Component {
   state = {
-    onBoardingLoaded: false,
-    authCheckLoaded: false,
+  	onBoardingLoaded: false,
+  	authCheckLoaded: false,
   };
 
   render(): ReactElement {
-    const loading = !this.state.onBoardingLoaded || !this.state.authCheckLoaded;
+  	const loading = !this.state.onBoardingLoaded || !this.state.authCheckLoaded;
 
-    return (
-      <>
-        <StatusBar
-          translucent={Platform.OS === 'android'}
-          backgroundColor={
-            Platform.OS === 'ios' ? COLORS.PRIMARY : 'transparent'
-          }
-          barStyle={'dark-content'}
-        />
-        <WithAuthCheck
-          hideSplash={() => this.setState({authCheckLoaded: true})}>
-          <WithOnboarding
-            hideSplash={() => this.setState({onBoardingLoaded: true})}>
-            {!loading ? (
-              <WithStores>
-                <Container />
-              </WithStores>
-            ) : null}
-            <Splash show={loading} />
-          </WithOnboarding>
-        </WithAuthCheck>
-      </>
-    );
+  	return (
+  		<>
+  			<StatusBar
+  				translucent={Platform.OS === 'android'}
+  				backgroundColor={
+  					Platform.OS === 'ios' ? COLORS.PRIMARY : 'transparent'
+  				}
+  				barStyle={'dark-content'}
+  			/>
+  			<WithAuthCheck
+  				hideSplash={() => this.setState({authCheckLoaded: true})}>
+  				<WithOnboarding
+  					hideSplash={() => this.setState({onBoardingLoaded: true})}>
+  					{!loading ? (
+  						<WithStores>
+  							<Container />
+  						</WithStores>
+  					) : null}
+  					<Splash show={loading} />
+  				</WithOnboarding>
+  			</WithAuthCheck>
+  		</>
+  	);
   }
 }
 

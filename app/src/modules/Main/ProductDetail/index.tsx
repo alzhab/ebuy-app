@@ -1,87 +1,145 @@
-import React, {useState} from 'react';
+import React, { useCallback, useState } from 'react'
+import { Button, Flex, HeaderScroll, Modal } from '@components'
+import { ButtonTypes, Navigations } from '@types'
 import {
-  AnimateItTiming,
-  Button,
-  Card,
-  Flex,
-  HeaderScroll,
-  Text,
-} from '@components';
-import {AI, ButtonTypes, DIR, JC} from '@types';
-import {scaleSize, WINDOW_HEIGHT} from '@styles/mixins';
-import {
-  Actions,
   DescCard,
   InfoCard,
-  Modal,
-  Pagination,
+  Modal as CartModal,
   ReviewsCard,
   Slider,
-} from './components';
-import {ShareIcon, StarIcon} from '@icons';
-import {COLORS, TextFamily} from '@styles/base';
-import {Opacity} from './components/Slider';
-import {StyleSheet} from 'react-native';
-import {CONTAINER_HOR_PADDING} from '@styles/spacing';
+} from './components'
+import { ShareIcon } from '@icons'
+import { COLORS } from '@styles/base'
+import { Opacity } from './components/Slider'
+import { useFocusEffect, useRoute } from '@react-navigation/native'
+import { IProduct } from '../../../api/products.api'
+import Video from 'react-native-video'
+import { WINDOW_HEIGHT } from '@styles/mixins'
+import { authStore, cartStore, noticeMessageStore } from '@stores'
+import { NoticeTypeEnum } from '../../../stores/NoticeMessageStore'
+import navigate from '@navigations/RootNavigation'
 
 const ProductDetail = () => {
-  const [showSlider, setShowSlider] = useState(Opacity.start);
-  const [show, setShow] = useState(false);
+  const [showSlider, setShowSlider] = useState(Opacity.start)
+  const [show, setShow] = useState(false)
+  const [card, setCard] = useState<IProduct | null>(null)
+  const [showVideo, setShowVideo] = useState(false)
+  const [videoLoading, setVideoLoading] = useState(false)
+  const route = useRoute<any>()
+
+  useFocusEffect(
+    useCallback(() => {
+      if (route?.params?.card) {
+        setCard(route?.params?.card)
+
+        return () => {
+          setCard(null)
+        }
+      }
+    }, []),
+  )
 
   const handleScroll = (y: number) => {
     if (y > 100) {
-      setShowSlider(Opacity.end);
+      setShowSlider(Opacity.end)
     } else if (y <= 100 && y >= 50) {
-      setShowSlider(Opacity.middle);
+      setShowSlider(Opacity.middle)
     } else if (y < 50) {
-      setShowSlider(Opacity.start);
+      setShowSlider(Opacity.start)
     }
-  };
+  }
 
   const addToCart = () => {
-    if (!show) {
-      setShow(true);
+    if (card) {
+      if (!authStore.isAuthorized) {
+        navigate(Navigations.Auth)
+      } else {
+        if (!show) {
+          setShow(true)
+        } else {
+          cartStore.addProduct(card, '#EF452C')
+          noticeMessageStore.showMessage(
+            'Successfully added to cart',
+            NoticeTypeEnum.success,
+          )
+          setShow(false)
+        }
+      }
     }
-  };
+  }
 
   return (
-    <Flex full size={1} styles={{backgroundColor: 'transparent'}}>
-      <Flex size={1} full>
-        <HeaderScroll
-          scrollHeader={<Slider show={showSlider} />}
-          containerHor
-          containerBottom
-          onScroll={handleScroll}
-          headerProps={{
-            title: '',
-            back: true,
-            transparent: true,
-            absolute: true,
-            right: (
-              <Button empty type={ButtonTypes.EMPTY} click={() => {}}>
-                <ShareIcon sizeHeight={24} color={COLORS.NEUTRAL_DARK} />
-              </Button>
-            ),
-          }}>
-          <InfoCard />
+    <>
+      {!!card && (
+        <Flex full size={1} styles={{ backgroundColor: 'transparent' }}>
+          <Flex size={1} full>
+            <HeaderScroll
+              scrollHeader={
+                <Slider
+                  showVideo={() => setShowVideo(true)}
+                  card={card}
+                  show={showSlider}
+                />
+              }
+              containerHor
+              containerBottom
+              onScroll={handleScroll}
+              headerProps={{
+                title: '',
+                back: true,
+                transparent: true,
+                absolute: true,
+                right: (
+                  <Button empty type={ButtonTypes.EMPTY} click={() => {}}>
+                    <ShareIcon sizeHeight={24} color={COLORS.NEUTRAL_DARK} />
+                  </Button>
+                ),
+              }}>
+              <InfoCard card={card} />
 
-          <DescCard />
+              <DescCard card={card} />
 
-          <ReviewsCard />
-        </HeaderScroll>
+              <ReviewsCard />
+            </HeaderScroll>
 
-        <Modal show={show} close={() => setShow(false)} />
-      </Flex>
+            <CartModal card={card} show={show} close={() => setShow(false)} />
+          </Flex>
 
-      <Flex
-        full
-        containerHor
-        containerBottom
-        styles={{backgroundColor: COLORS.MAIN_BG}}>
-        <Button click={addToCart} full title={'Add to card'} />
-      </Flex>
-    </Flex>
-  );
-};
+          <Flex
+            full
+            containerHor
+            containerBottom
+            styles={{ backgroundColor: COLORS.MAIN_BG }}>
+            <Button click={addToCart} full title={'Add to card'} />
+          </Flex>
+        </Flex>
+      )}
 
-export default ProductDetail;
+      {!!card && (
+        <Modal close={() => setShowVideo(false)} open={showVideo}>
+          <Video
+            onLoad={() => setVideoLoading(false)}
+            onLoadStart={() => setVideoLoading(true)}
+            controls
+            onError={() => {
+              console.log('error')
+            }}
+            onBuffer={() => {
+              console.log('buffer')
+            }}
+            source={{ uri: card.video }} // Can be a URL or a local file.
+            style={{
+              height: WINDOW_HEIGHT / 3,
+              width: '100%',
+              borderRadius: 10,
+              zIndex: 101,
+              backgroundColor: '#ececec',
+            }}
+          />
+        </Modal>
+      )}
+    </>
+  )
+}
+
+export default ProductDetail
